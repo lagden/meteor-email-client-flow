@@ -39,6 +39,7 @@
     ],
     "global": [
       "Meteor",
+      "FindFromPublication",
       "FlowRouter",
       "BlazeLayout",
       "Template",

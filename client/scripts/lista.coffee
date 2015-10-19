@@ -1,14 +1,15 @@
+Template.lista.onCreated ->
+  @autorun =>
+    @subscribe 'listaEmail', FlowRouter.getParam('nome')
+    return
+
 Template.lista.helpers
   lista: ->
     nome = FlowRouter.getParam 'nome'
     settings = {}
     if nome
       settings.label = nome
-
-    # console.log 'FlowRouter.subsReady ----->', FlowRouter.subsReady()
-    # console.log 'settings ----->', settings
-
-    Emails.find {}, {sort: {nome: 1}}
+    Emails.findFromPublication 'listaEmail', settings
   path: ->
     nome = FlowRouter.getParam 'nome'
     path = if nome then "label/#{nome}" else 'inbox'

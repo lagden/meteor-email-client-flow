@@ -23,3 +23,5 @@ markdown
 kadira:blaze-layout
 kadira:flow-router
 coffeescript
+msavin:mongol
+percolate:find-from-publication

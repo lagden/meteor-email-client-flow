@@ -5,5 +5,5 @@ function listaEmail(caption = false, settings = {}) {
 	return Emails.find(settings);
 }
 
-Meteor.publish('listaEmail', listaEmail);
-Meteor.publish('lerEmail', emailId => Emails.find(emailId));
+FindFromPublication.publish('listaEmail', listaEmail);
+FindFromPublication.publish('lerEmail', emailId => Emails.find({_id: emailId}));
