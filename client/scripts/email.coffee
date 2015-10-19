@@ -1,11 +1,16 @@
-Template.lista.onCreated ->
-  @autorun =>
-    @subscribe 'lerEmail', FlowRouter.getParam('_id')
-    return
+Template.email.onCreated ->
+  @subscribe 'lerEmail', FlowRouter.getParam('_id')
+  return
+
+# Template.email.helpers
+#   email: ->
+#     dados = Emails.findOne FlowRouter.getParam('_id')
+#     if dados
+#       return dados
+
+#     Meteor.subscribe 'lerEmail', FlowRouter.getParam('_id')
+#     return
 
 Template.email.helpers
-  dados: ->
-    Emails
-      .findFromPublication('lerEmail', FlowRouter.getParam('_id'))
-      .fetch()
-    # Emails.findOne FlowRouter.getParam('_id')
+  email: ->
+    Emails.findOne FlowRouter.getParam('_id')

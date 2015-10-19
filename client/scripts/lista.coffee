@@ -1,7 +1,11 @@
+# Template.lista.onCreated ->
+#   @autorun =>
+#     @subscribe 'listaEmail', FlowRouter.getParam('nome')
+#     return
+
 Template.lista.onCreated ->
-  @autorun =>
-    @subscribe 'listaEmail', FlowRouter.getParam('nome')
-    return
+  @subscribe 'listaEmail', FlowRouter.getParam('nome')
+  return
 
 Template.lista.helpers
   lista: ->
@@ -9,7 +13,7 @@ Template.lista.helpers
     settings = {}
     if nome
       settings.label = nome
-    Emails.findFromPublication 'listaEmail', settings
+    Emails.find settings
   path: ->
     nome = FlowRouter.getParam 'nome'
     path = if nome then "label/#{nome}" else 'inbox'

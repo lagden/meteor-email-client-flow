@@ -1,5 +1,8 @@
 <template name="lista">
   <div class="lista">
+    {{#unless Template.subscriptionsReady}}
+      {{> loading}}
+    {{/unless}}
     <ul class="emails">
       {{#each lista}}
       <li class="emails__item">
@@ -20,8 +23,6 @@
           </span>
         </a>
       </li>
-      {{else}}
-        <li class="emails__item emails__item--pad">Sem emails</li>
       {{/each}}
     </ul>
   </div>
