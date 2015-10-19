@@ -9,22 +9,22 @@ Template.lista.onCreated ->
 
 Template.lista.helpers
   lista: ->
-    nome = FlowRouter.getParam 'nome'
-    settings = {}
-    if nome
-      settings.label = nome
-    Emails.find settings
+    Emails.repository.lista FlowRouter.getParam 'nome'
+
   path: ->
     nome = FlowRouter.getParam 'nome'
     path = if nome then "label/#{nome}" else 'inbox'
+
   starred: ->
     if @starred then 'starred' else ''
+
 
 Template.lista.events
   'click .emails__chk': (event) ->
     event.stopPropagation()
     console.log 'ID do email', event.target.value
     return
+
   'click .emails__icon--star': (event) ->
     event.stopPropagation()
     event.preventDefault()

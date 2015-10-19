@@ -13,4 +13,6 @@ Template.email.onCreated ->
 
 Template.email.helpers
   email: ->
-    Emails.findOne FlowRouter.getParam('_id')
+    dados = Emails.repository.one FlowRouter.getParam('_id')
+    if dados.count() == 1
+      dados.fetch()[0]
