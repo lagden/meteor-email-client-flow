@@ -6,7 +6,7 @@
 ## Install 
 
 ```
-git clone https://github.com/lagden/meteor-email-client.git
+git clone https://github.com/lagden/meteor-email-client-flow.git
 cd meteor-email-client
 meteor
 ```
