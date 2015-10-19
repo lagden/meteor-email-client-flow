@@ -1,0 +1,28 @@
+<template name="lista">
+  <div class="lista">
+    <ul class="emails">
+      {{#each lista}}
+      <li class="emails__item">
+        <a href="/{{path}}/{{_id}}">
+          <span>
+            <input class="emails__chk" type="checkbox" value="{{_id}}">
+            <b>{{nome}}</b>
+            <small class="right">
+              {{#if anexo}}
+                <svg class="icon emails__icon"><use xlink:href="#icon-paperclip"></use></svg>
+              {{/if}}
+              {{formatDate date}}
+            </small>
+          </span>
+          <span>
+            <svg class="icon emails__icon emails__icon--star {{starred}}" data-email-id="{{_id}}"><use xlink:href="#icon-star"></use></svg>
+            <small>{{titulo}} - {{corpo}}</small>
+          </span>
+        </a>
+      </li>
+      {{else}}
+        <li class="emails__item emails__item--pad">Sem emails</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

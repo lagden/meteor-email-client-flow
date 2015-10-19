@@ -1,0 +1,20 @@
+<!-- <template name="app">
+  {{> yield}}
+  <div class="gs">
+    {{> label}}
+    {{> yield "lista"}}
+    {{> yield "ler"}}
+  </div>
+</template>
+ -->
+
+<body>
+  {{> loading}}
+  {{> label}}
+  {{> applicationLayout}}
+</body>
+
+<template name="applicationLayout">
+  {{> Template.dynamic template=main}}
+  {{> Template.dynamic template=ler}}
+</template>

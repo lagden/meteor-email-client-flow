@@ -1,0 +1,20 @@
+<template name="label">
+  <div class="filtro">
+    <h3>Labels</h3>
+    <ul class="labels">
+      <li class="labels__item">
+        <a href="/inbox">
+          <span class="labels__caption">Inbox</span>
+        </a>
+      </li>
+      {{#each captions}}
+      <li class="labels__item">
+        <a href="/label/{{name}}">
+          <span class="labels__caption">{{name}}</span>
+          <span class="labels__bullet labels__bullet--{{lowerCase name}}"></span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

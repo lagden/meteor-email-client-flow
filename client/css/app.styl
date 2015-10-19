@@ -1,0 +1,192 @@
+@import 'jeet'
+
+normalize-css()
+base()
+
+// edit()
+
+$cor = {
+  fundo: #F3F3F3
+  filtro: #36393e
+  lista: #f6f5f3
+  email: white
+  white: white
+  green: #97c89b
+  divide: #e5e4e2
+  gold: #FFCC00
+  icon: #d1d0ce
+  red: red
+}
+
+$lista
+  list-style none
+  margin: 0
+  padding 0
+
+$lista-item
+  > a
+    display block
+
+$vh
+  height: 100vh
+
+$boxs
+  box-sizing border-box
+
+html,
+body
+  background: $cor.fundo
+  min-height: 100%
+
+unstyledLink()
+  color inherit
+  text-decoration inherit
+  &:active,
+  &:focus
+      outline none
+.icon
+  width: 16px
+  height: @width
+
+.emails__icon
+  width: 14px
+  height: @width
+  fill: $cor.icon
+
+.starred
+  fill: $cor.gold
+
+.gs
+  center(1110px, 20px)
+  cf()
+
+.filtro
+  col(0.2, gutter: 0)
+  background-color: $cor.filtro
+  @extends $vh
+  @extends $boxs
+  > h3
+    padding: 15px
+    margin: 0
+    font-size: 1em
+    color: rgba($cor.white, 0.1)
+    text-transform: uppercase
+
+.lista
+  border: 1px solid $cor.divide
+  border-width: 0 1px
+  col(0.3, gutter: 0)
+  background-color: $cor.lista
+  @extends $vh
+  @extends $boxs
+
+.email
+  col(0.5, gutter: 0)
+  background-color: $cor.email
+  @extends $vh
+  @extends $boxs
+  padding: 25px
+
+.labels,
+.emails
+  @extends $lista
+
+.labels__item,
+.emails__item
+  @extends $lista-item
+
+.labels__item
+  > a
+    unstyledLink()
+    position: relative
+    color: $cor.white
+    display: block
+    padding: 15px
+    &:hover,
+    &:active
+      background-color: rgba($cor.white, 0.2)
+
+.labels__bullet
+  margin: auto
+  position: absolute
+  top: 0
+  left: auto
+  bottom: 0
+  right: 15px
+  display: inline-block
+  width: 10px
+  height: @width
+  background-color: $cor.green
+  overflow: hidden
+
+$bullets = {
+  clients: #e77149
+  social: #dfc966
+  family: #8bcec7
+  friends: #b58ee7
+}
+
+for k, v in $bullets
+  .labels__bullet--{k}
+    background-color: v
+
+.emails__item
+  border: 1px solid $cor.divide
+  border-width: 0 0 1px 0
+  > a
+    unstyledLink()
+    display: block
+    padding: 15px
+    &:hover,
+    &:active
+      background-color: $cor.green
+      & > span .emails__icon
+        fill: $cor.white
+      & > span .icon.starred
+        @extends .starred
+
+    > span
+      display: block
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      > small.right
+        float: right
+
+.emails__item--pad
+  padding: 15px
+
+// Loading
+duration = 0.45s
+
+.loading
+  position fixed
+  top 0
+  right 0
+  bottom auto
+  left 0
+  margin auto
+  width 100%
+  height 50px
+  overflow hidden
+  background-color: rgba($cor.red, 0.7)
+  color: $cor.white
+  backface-visibility hidden
+  will-change transform, visibility
+
+  visibility hidden
+  transform translateY(-100%)
+  transition transform duration, visibility 0s duration
+
+  display flex
+  justify-content center
+  align-items center
+
+  &:focus
+    outline none
+
+.loading--open
+  visibility visible
+  transform translate(0%)
+  transition: transform duration
+  z-index 1000
