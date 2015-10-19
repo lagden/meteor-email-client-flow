@@ -48,6 +48,7 @@ mquandalle:stylus@1.1.1
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+percolate:find-from-publication@0.1.0
 promise@0.5.0
 random@1.0.4
 reactive-dict@1.1.2
