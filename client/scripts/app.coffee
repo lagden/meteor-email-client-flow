@@ -15,10 +15,16 @@ formatDate = (date, useDateString = "false") ->
 lowerCase = (s) ->
   s.toLowerCase()
 
+resume = (s, words) ->
+  arr = s.split ' '
+  narr = arr.slice(0, words)
+  "#{narr.join(' ')}..."
+
 delayCalc = (v) ->
   v * 200
 
 Meteor.startup startupApp
 Template.registerHelper 'lowerCase', lowerCase
 Template.registerHelper 'formatDate', formatDate
+Template.registerHelper 'resume', resume
 Template.registerHelper 'delayCalc', delayCalc
