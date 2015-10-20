@@ -1,6 +1,56 @@
 <template name="email">
-  <div class="email">
-    <h3>{{email.titulo}}</h3>
-    {{#markdown}}{{email.corpo}}{{/markdown}}
-  </div>
+  {{#if email}}
+    <article class="email">
+      <div class="topMax">
+        <header class="email__header">
+          <svg class="icon emails__icon emails__icon--star {{#if email.starred}}starred{{/if}}"><use xlink:href="#icon-star"></use></svg>
+          <h1>
+            <small>{{email.titulo}}</small>
+          </h1>
+          <div class="group__actions">
+            <svg class="icon actions__icon"><use xlink:href="#icon-mail-reply"></use></svg>
+            <svg class="icon actions__icon"><use xlink:href="#icon-trashcan"></use></svg>
+          </div>
+        </header>
+        <div class="emailInfo">
+          <img src="{{email.picture.thumbnail}}" srcset="{{email.picture.thumbnail}} 1x, {{email.picture.medium}} 2x" class="emailInfo__img" alt="{{email.nome}}">
+          <div class="emailInfo__dados emailInfo__dados--main">
+            <span class="data--green"><b>{{email.nome}}</b></span> to <span class="data--green">me</span>
+          </div>
+          <div class="emailInfo__dados emailInfo__dados--extra">
+            {{#if email.anexo}}
+              <svg class="icon actions__icon"><use xlink:href="#icon-paperclip"></use></svg>
+              <span class="data--green anexo">({{email.anexo.length}})</span>
+            {{/if}}
+            <span>{{formatDate email.date "true"}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="email__body">
+        {{#markdown}}{{email.corpo}}{{/markdown}}
+        {{#if email.anexo}}
+          <div class="email__anexo">
+            <p><b>Attachaments</b> ({{email.anexo.length}} files, 3.2KB)</p>
+            <table class="email__table">
+            {{#each email.anexo}}
+              <tr>
+                <td>
+                  <span class="badge">{{ext}}</span> <b>{{file}}</b> (1.6 KB)
+                </td>
+                <td><a href="#share">Share</a></td>
+                <td><a href="#share">View</a></td>
+                <td><a href="#share">Download</a></td>
+              </tr>
+            {{/each}}
+            </table>
+          </div>
+        {{/if}}
+        <button class="email__reply">
+          <svg class="icon actions__icon"><use xlink:href="#icon-mail-reply"></use></svg>
+          Reply
+        </button>
+      </div>
+
+    </article>
+  {{/if}}
 </template>

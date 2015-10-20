@@ -1,0 +1,87 @@
+.actions__icon
+  @extends $inlineblockMiddle
+  fill: $cor.icon
+
+.email
+  color: $cor.gray
+
+.email__header
+  position: relative
+  border: 1px solid $cor.divide
+  border-width: 1px 0
+  padding: 15px 25px
+  > h1,
+  > .emails__icon--star
+    @extends $inlineblockMiddle
+  > h1
+    @extends $boxs
+    font-size: 2em
+    color: $cor.black
+    margin: 0
+    padding: 0
+    padding-left: 10px
+    width: calc(100% - 70px)
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+  > .group__actions
+    align(direction: v)
+    right: 25px
+
+.emailInfo
+  position relative
+  padding: 15px 25px
+  @extends $boxs
+
+.emailInfo__img
+  @extends $inlineblockMiddle
+  width: 40px
+  height: @width
+  border-radius 50%
+
+.emailInfo__dados
+  @extends $inlineblockMiddle
+  > .data--green
+    color: $cor.green
+
+.emailInfo__dados--extra
+  align(direction: v)
+  right: 25px
+  > .anexo
+    margin-right 15px
+
+.email__body
+  position relative
+  padding: 15px 25px
+  border: 1px solid $cor.divide
+  border-width: 1px 0 0 0
+  @extends $boxs
+
+.email__anexo
+  border: 1px solid $cor.divide
+  border-width: 1px 0
+  margin-bottom 1em
+
+.email__table
+  width: 100%
+  margin-bottom 1em
+  > tr > td
+    padding 10px
+    text-align right
+    &:first-child
+      padding-left 0
+      text-align left
+      width: 99%
+    &:last-child
+      padding-right 0
+    > a
+      unstyledLink()
+      color: $cor.black
+
+
+.email__reply
+  @extends $btn
+  float: right
+  > .icon
+    fill: $cor.white

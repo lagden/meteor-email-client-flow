@@ -1,0 +1,82 @@
+.emails
+  @extends $lista
+
+.emails__box
+  background-color: $cor.lightgray
+  position relative
+  border: 1px solid $cor.divide
+  border-width: 0 0 1px 0
+  +below($bpMobile)
+    background-color: $cor.green
+    color: $cor.white
+
+  & > .box__title
+    align()
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    > span
+      @extends $inlineblockMiddle
+      font-size: 1.7em
+      &:last-child
+        font-size: 1em
+        +below($bpMobile)
+          display none
+
+  > .burger
+    display none
+    +below($bpMobile)
+      display block
+
+.emails__item
+  border: 1px solid $cor.divide
+  border-width: 0 0 1px 0
+  > a
+    unstyledLink()
+    padding: 15px
+    &:hover,
+    &:active,
+    &.active
+      background-color: $cor.green
+      & > span .emails__icon
+        fill: $cor.white
+      & > span .icon.starred
+        @extends .starred
+    &.active
+      background-color: lighten($cor.green, 50%)
+
+    > span
+      > b,
+      > small
+        display: inline-block
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        width: calc(95% - 60px)
+        +below($bpMobile)
+          font-size 1.3em
+      > small.right
+        float: right
+        width: auto
+        +below($bpMobile)
+          display: none
+
+      &.media__figure
+        > .mdl-badge
+          display none
+          > img
+            display none
+            width: 110px
+            height: @width
+            border-radius 50%
+        +below($bpMobile)
+          > input,
+          > svg
+            display: none
+          > .mdl-badge
+            display inline-block
+            > img
+              display inline-block
+
+.emails__item--pad
+  padding: 15px

@@ -9,14 +9,23 @@ Template.lista.onCreated ->
 
 Template.lista.helpers
   lista: ->
-    Emails.repository.lista FlowRouter.getParam 'nome'
+    collections = Emails.repository.lista FlowRouter.getParam 'nome'
+    {
+      collections: collections
+      total: collections.count()
+    }
 
   path: ->
     nome = FlowRouter.getParam 'nome'
     path = if nome then "label/#{nome}" else 'inbox'
 
-  starred: ->
-    if @starred then 'starred' else ''
+  active: ->
+    emailID = FlowRouter.getParam '_id'
+    if @_id == emailID then 'active' else ''
+
+  box: ->
+    nome = FlowRouter.getParam 'nome'
+    if nome then nome else 'Inbox'
 
 
 Template.lista.events

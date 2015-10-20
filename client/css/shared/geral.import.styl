@@ -1,0 +1,110 @@
+// Media Box
+.media
+  display flex
+  align-items flex-start
+
+.media__figure
+  margin-right 1em
+
+.media__body
+  flex 1
+
+// Badge
+$badge-font-size = 12px
+$badge-color = white
+$badge-color-inverse = #dfc966
+$badge-background = #dfc966
+$badge-background-inverse = rgba(white, 0.2)
+$badge-size = 22px;
+$badge-padding = 2px;
+
+.mdl-badge
+  position: relative
+  white-space: nowrap
+  margin-right: ($badge-size + $badge-padding)
+
+  &:not([data-badge])
+    margin-right: auto
+
+  &[data-badge]:after
+    content: attr(data-badge)
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-content: center
+    align-items: center
+    position: absolute
+    top: 0
+    right: 0
+    font-family: $preferred_font
+    font-weight: 600
+    font-size: $badge-font-size
+    width: $badge-size
+    height: $badge-size
+    border-radius : 50%
+    background: $badge-background
+    color: $badge-color
+    border: 3px solid $cor.lista
+
+  a:hover &
+    &[data-badge]:after
+      border-color: $cor.green
+
+// Burger
+$transitionTime = 1
+$colorBurger = #FFFFFF
+$distBurger = 11
+
+$width = 36
+$height = 36
+$size = 4
+
+.burger
+  align()
+  left 50px
+  box-sizing border-box
+  // background none
+  // padding 0
+  // margin 0
+  // margin-right 10px
+  border 0
+  width $width * 2px
+  height $height * 2px
+  // position relative
+  // transform: translateY(2px)
+  &:focus,
+  &:active,
+  &:hover
+    background none
+
+.burger__icon
+  margin auto
+  top 0
+  left 0
+  right 0
+  bottom 0
+  position absolute
+  width $width * 1px
+  height $size * 1px
+  background-color rgba($colorBurger, 1)
+  border-radius 50em
+
+  &:before,
+  &:after
+    content ''
+    margin auto
+    top 0
+    left 0
+    right 0
+    bottom 0
+    width 100%
+    height 100%
+    position absolute
+    background-color $colorBurger
+    transform-origin 50% 50%
+    border-radius 50em
+  &:before
+    transform translateY($distBurger * -1px)
+  &:after
+    transform translateY($distBurger * 1px)

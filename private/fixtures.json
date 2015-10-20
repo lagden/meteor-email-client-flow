@@ -55,6 +55,12 @@
   "anexo": [{
     "file": "cogumelo.jpg",
     "ext": "jpg"
+  },{
+    "file": "toad.jpg",
+    "ext": "jpg"
+  },{
+    "file": "luigi.jpg",
+    "ext": "jpg"
   }],
   "picture": {
     "large": "http://api.randomuser.me/portraits/men/3.jpg",

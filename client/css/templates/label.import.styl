@@ -1,0 +1,68 @@
+.filtro__compose
+  padding: 15px
+  text-align center
+  border: 1px solid rgba($cor.divide, 0.1)
+  border-width: 0 0 1px 0
+  +below($bpMobile)
+    display: none
+
+.filtro__topMax
+  display: none
+  position relative
+  > img
+    align()
+    width 70px
+    height @width
+  +below($bpMobile)
+    display: block
+
+.btn__compose
+  @extends $btn
+
+.labels
+  @extends $lista
+
+.labels__item
+  > a
+    unstyledLink()
+    position: relative
+    color: $cor.white
+    display: block
+    padding: 15px
+    &:hover,
+    &:active
+      background-color: rgba($cor.white, 0.2)
+    +below($bpMobile)
+      padding: 40px 15px
+
+  +below($bpMobile)
+    &:first-child
+      display none
+
+.labels__caption
+  +below($bpMobile)
+    display none
+
+.labels__bullet
+  align(direction: v)
+  right: 15px
+  width: 10px
+  height: @width
+  background-color: $cor.green
+  overflow: hidden
+  +below($bpMobile)
+    align(direction: both)
+    border-radius: 50%
+    width: 25px
+    height: @width
+
+$bullets = {
+  clients: #e77149
+  social: #dfc966
+  family: #8bcec7
+  friends: #b58ee7
+}
+
+for k, v in $bullets
+  .labels__bullet--{k}
+    background-color: v

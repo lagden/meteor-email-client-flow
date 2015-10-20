@@ -1,5 +1,10 @@
 <body>
-  {{> label}}
-  {{> lista}}
-  {{> email}}
+  <div class="gs">
+    {{> label}}
+    {{> lista}}
+    {{#transition in="fadeInRight" out="fadeOutRight"}}
+      {{> Template.dynamic template=email}}
+    {{/transition}}
+    {{> email}}
+  </div>
 </body>

@@ -1,0 +1,72 @@
+html,
+body
+  background: $cor.fundo
+  min-height: 100%
+  // font-size: 95%
+
+unstyledLink()
+  color inherit
+  text-decoration inherit
+  &:active,
+  &:focus
+      outline none
+.icon
+  width: 16px
+  height: @width
+
+.emails__icon
+  width: 14px
+  height: @width
+  fill: $cor.icon
+
+.starred
+  fill: $cor.gold
+
+.badge
+  color: $cor.white
+  background-color: $cor.black
+  @extends $inlineblockMiddle
+  border-radius 3px
+  padding 3px 5px
+
+.gs
+  cf()
+
+.filtro
+  col(0.2, gutter: 0)
+  background-color: $cor.filtro
+  @extends $vh
+  @extends $boxs
+  > h3
+    padding: 15px
+    margin: 0
+    font-size: 1em
+    color: rgba($cor.white, 0.1)
+    text-transform: uppercase
+  +below($bpMobile)
+    width: 125px
+
+.lista
+  col(0.3, gutter: 0)
+  border: 1px solid $cor.divide
+  border-width: 0 1px
+  background-color: $cor.lista
+  @extends $vh
+  @extends $boxs
+  +below($bpMobile)
+    width: calc(100% - 125px)
+
+.email
+  col(0.5, gutter: 0)
+  background-color: $cor.email
+  @extends $vh
+  @extends $boxs
+  +below($bpMobile)
+    position: fixed
+    width: 100%
+    display: none
+
+.topMax
+  min-height: 150px
+  +below($bpMobile)
+    min-height: 100px
